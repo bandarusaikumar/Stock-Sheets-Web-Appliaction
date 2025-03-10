@@ -1,0 +1,24 @@
+<div class="login-body">
+    <div class="card">
+        <div class="card-body">
+            <img class="img-pos" src="assets/imgs/client-logo.jpg">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="userName">Username</label>
+                        <input type="text" class="form-control" placeholder="Enter username" #userName required>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Password" #userPassword required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="signIn(userName.value, userPassword.value)">Log in</button>
+                <div class="separator">OR</div>
+                <button type="button" class="btn btn-danger" (click)="authService.GoogleAuth()">
+                    <i class="fab fa-google"></i> Sign in with Google
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+<!-- Top navigation -->
+
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <span class="logo"> <a routerLink="/dashboard" class="logo" (click)="restartApp()">Liquid Infusion</a> </span>
+  <!-- <span class="logo"> <a routerLink="/dashboard"  class="logo"> Liquid Infusion </a> </span> -->
+  <span *ngIf="userRole === 'admin'" class="history"><a routerLink="/admin"  class="history"> Created Template </a></span>
+  <span class="history"><a routerLink="/calendar"  class="history"> Calendar </a></span>
+  <span class="history"><a routerLink="/history"  class="history"> History </a></span>
+  <span class="sign-out-btn" (click)="authService.SignOut()"> Sign Out</span>
+</nav>
+
+<main *ngIf="userRole === 'admin'" role="main">
+  <div *ngIf="!showTemplate">
+    <button class="btn btn-primary-large" (click)="showAccordion()"><span class="material-icons">
+        add
+      </span>Create Template</button>
+  </div>
+
+  <div *ngIf="showTemplate" style="width:100%; height:100%; padding:1%">
+    <button class="btn create-btn" (click)="createNewTemp()"><span class="material-icons">
+        add
+      </span>Create New Template</button>
+    <div class="card-holder">
+      <div class="form-row">
+        <div class="form-group col-9">
+          <mat-card class="cust-card">
+            <div class="add-item" *ngIf="!disableAddList">
+              <label for="userName">List Name</label>
+              <input type="text" class="form-control" placeholder="Enter the List Name" [(ngModel)]="listName" required
+                [readOnly]="disableAddList">
+              <button class="btn btn-primary" (click)="openList()"><span class="material-icons">
+                  add
+                </span></button>
+            </div>
+            <div class="add-item" *ngIf="disableAddList">
+              <label for="userName" style="width:100%">{{listName}}</label>
+              <div *ngIf="itemArr.length">
+                <button class="btn item-save" [disabled]="disableSave" (click)="saveItem()">Save</button>
+              </div>
+            </div>
+            <div *ngIf="showList">
+              <div class="item">
+                <input type="text" class="form-control" placeholder="Add an Item Name" [(ngModel)]="itemName" required>
+                <button class="btn btn-primary" (click)="AddItemToList()"><span class="material-icons">
+                    add
+                  </span></button>
+              </div>
+              <div>
+                <mat-list role="list" *ngFor="let item of itemArr; let i=index;">
+                  <mat-list-item role="listitem" *ngIf="item">
+                    <span>{{item.name}}</span>
+                    <button class="btn btn-primary" (click)="deleteItem(i)"><span class="material-icons">
+                        delete
+                      </span></button>
+                  </mat-list-item>
+                </mat-list>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div class="form-group col-3">
+          <mat-card>
+            <input type="text" class="form-control" placeholder="Add a Package Name" [(ngModel)]="packageName" required>
+            <span *ngIf="!listArr.length" class="no-item">No Items Added</span>
+            <mat-list role="list" *ngFor="let list of listArr; let i=index;">
+              <mat-list-item role="listitem" *ngIf="list">
+                <span>{{list.name}}-{{list.id}}</span>
+                <button class="btn btn-primary" (click)="deleteList(i)"><span class="material-icons">
+                    delete
+                  </span></button>
+              </mat-list-item>
+            </mat-list>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="listArr" style="display: block;">
+      <button class="btn final-save" (click)="saveTemplate()">Save template</button>
+      <button class="btn final-save" (click)="createPopup()">Add PopUp</button>
+      <button class="btn final-save" (click)="previewTemplate()">Preview</button>
+    </div>
+  </div>
+</main>
+
+<main *ngIf="userRole === 'user'" role="main" style="padding: 10%;">
+  <mat-card class="mat-temp">
+    <h2 style="text-align: center;"><span>Packages</span></h2>
+    <div class="add-item" >
+      <label for="userName">Search Package</label>
+      <input type="text" class="form-control"  placeholder="Search by Package Name" [(ngModel)]="searchInput" required  autocomplete="off">
+      <button class="btn btn-primary"><span class="material-icons">
+          search
+        </span></button>
+    </div>
+    <mat-list role="list" *ngFor="let list of userData | filter:searchInput; let i=index;">
+      <mat-list-item role="listitem" *ngIf="list">
+        <span>{{list.packageName}}</span>
+        <button class="btn final-save" (click)="openPopUp(list)">View</button>
+        <!-- <button class="btn final-save" (click)="previewTemplate(list)">View</button> -->
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</main>

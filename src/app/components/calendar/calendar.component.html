@@ -1,0 +1,14 @@
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <span class="logo">
+    <a routerLink="/dashboard" class="logo">Liquid Infusion</a>
+  </span>
+  <span class="history"><a routerLink="/calendar" class="history">Calendar</a></span>
+  <span class="history"><a routerLink="/history" class="history">History</a></span>
+  <span class="sign-out-btn" (click)="authService.SignOut()">Sign Out</span>
+</nav>
+
+<div class="calendar-wrapper">
+  <div class="calendar-container">
+    <full-calendar #fc [options]="options" [events]="events"></full-calendar>
+  </div>
+</div>

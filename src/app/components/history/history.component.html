@@ -1,0 +1,24 @@
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <span class="logo"> <a routerLink="/dashboard"  class="logo"> Liquid Infusion </a> </span>
+    <span class="history"><a routerLink="/calendar"  class="history"> Calendar </a></span>
+    <span class="history"><a routerLink="/history"  class="history"> History </a></span>
+    <span class="sign-out-btn" (click)="authService.SignOut()"> Sign Out</span>
+  </nav>
+<main  role="main" style="padding: 10%;">
+    <mat-card class="mat-temp">
+        <h2 style="text-align: center;"><span> Stock Sheets History</span></h2>
+        <div class="add-item" >
+          <label for="userName">Search Stock Sheets</label>
+          <input type="text" class="form-control"  placeholder="Search by Client Name/ Stock Sheet No /Event Date" [(ngModel)]="searchInput" required  autocomplete="off">
+          <button class="btn btn-primary"><span class="material-icons">
+              search
+            </span></button>
+        </div>
+      <mat-list role="list" *ngFor="let list of userData | filter:searchInput; let i=index;">
+        <mat-list-item role="listitem" *ngIf="list">
+          <span>Stock Sheet Number:{{list.savedId}} / Client Name:{{list.clientName}} / Event Date:{{list.eventDate}}</span>
+          <button class="btn final-save" (click)="previewTemplate(list)">View</button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </main>

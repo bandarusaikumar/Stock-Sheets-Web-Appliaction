@@ -1,0 +1,57 @@
+<mat-dialog-content class="mat-typography">
+    <div *ngFor="let list of previewData.popUpArr ; let j=index;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 40%;">{{list.name}}</th>
+            <th scope="col" style="width: 20%;text-align: center;">Units</th>
+            <!-- <th scope="col" style="width: 10%;text-align: center;">Picked</th>
+            <th scope="col" style="width: 10%;text-align: center;">Loaded</th>
+            <th scope="col" style="width: 20%;text-align: center;">returned</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of list.items ; let i=index;">
+            <td scope="row" >{{item.name}}</td>
+            <td>
+              <span><input type="number" [(ngModel)]="item.units" class="form-check-input" id="exampleCheck1"
+                  [disabled]="userRole ==='admin'"></span>
+            </td>
+            <!-- <td> <span><input type="checkbox" [(ngModel)]="item.picked" class="form-check-input" id="exampleCheck1"
+                  [disabled]="userRole ==='admin'"></span></td>
+            <td> <span><input type="checkbox" [(ngModel)]="item.loaded" class="form-check-input" id="exampleCheck1"
+                  [disabled]="userRole ==='admin'"></span></td>
+            <td> <span><input type="number"  [(ngModel)]="item.returned"class="form-check-input" id="exampleCheck1"
+                  [disabled]="userRole ==='admin'"></span></td> -->
+                  <!-- <td *ngIf="userRole ==='user'"> <button class="btn btn-primary" (click)="deleteList(j,i)"><span class="material-icons">
+                    delete
+                  </span></button></td> -->
+          </tr>
+          <!-- <tr *ngIf="userRole ==='user'">
+            <div style="float: left;" class="item">
+            <button  class="btn btn-primary" (click)="AddItemToList(j)"><span class="material-icons">
+              add
+            </span></button>
+          </div>
+       
+                  <div *ngIf="showNew"  class="item">
+                    <input type="text" class="form-control" placeholder="Add an Item Name" [(ngModel)]="newItem" required>
+                    <button class="btn btn-primary" (click)="AddList(j,newItem)"><span class="material-icons">
+                        add
+                      </span></button>
+                      <button class="btn btn-primary" (click)="hide()"><span class="material-icons">
+                        delete
+                      </span></button>
+                  </div>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </mat-dialog-content>
+ 
+  <mat-dialog-actions align="end">
+    <button mat-dialog-close class="btn action-btn">Close</button>
+    <!-- <button [mat-dialog-close]="true" class="btn action-btn"
+      cdkFocusInitial  (click)="exportAsPDF('MyDIv');">Download</button> -->
+    <button *ngIf="userRole ==='user'" mat-dialog-close (click)="onLoad()" class="btn action-btn">Load</button>
+  </mat-dialog-actions>

@@ -1,0 +1,653 @@
+// Import FullCalendar styles
+@import '../../../../node_modules/@fullcalendar/timegrid/main.min.css';
+@import '../../../../node_modules/@fullcalendar/daygrid/main.min.css';
+
+nav {
+    height: 10%;
+    min-height: 3rem;
+    position: sticky;
+    background: #343a40;
+    color: #f3b806;
+    .logo {
+        color: #f3b806;
+      flex: 14;
+      display: inline-flex;
+      font-size: 20px;
+      padding: 2%;
+      font-weight: 500;
+    }
+  
+    .history,
+    .sign-out-btn {
+        color: #f3b806;
+      flex: 1;
+      display: inline-flex;
+      justify-content: flex-end;
+      padding: 2%;
+    }
+    a {
+        color: #d0a111;
+        text-decoration: none;
+        background-color: transparent;
+    }
+  }
+  
+  main {
+    position: fixed;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-image: url("../../../assets/imgs/stock1-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+  }
+  
+  .btn-primary {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    background-color: #595c5f;
+    border: none;
+    background: #f3b806;
+    box-shadow: 1.5px 1.5px #6c757d78;
+    color: black;
+    border-radius: 5rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .btn-primary-large {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    background-color: #595c5f;
+    border: none;
+    background: #f3b806;
+    box-shadow: 1.5px 1.5px #6c757d78;
+    color: black;
+    border-radius: 5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    span {
+      display: block;
+      font-size: 3rem;
+    }
+  }
+  
+  .create-btn {
+    background: #eeb408;
+    margin-left: auto;
+    display: flex;
+    font-size: 13px;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mat-card {
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    min-height: 100%;
+    padding-bottom: 0.2rem;
+    overflow: auto;
+    .add-item {
+      display: flex;
+      justify-content: center;
+      align-items: center !important;
+      border-bottom: 1px solid grey;
+      align-items: center;
+      padding: 0.5em;
+      background: #f6ca45;
+      min-height: 3rem !important;
+      height: 3rem !important;
+      label {
+        display: inline-flex;
+        margin-bottom: 0;
+        width: 20%;
+        font-size: 14px;
+        font-weight: 500;
+      }
+  
+      .btn {
+        margin: 0 0.5em;
+        background: black;
+        color: #edc345;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  
+  .mat-input-element {
+    caret-color: black !important;
+  }
+  
+  .card-holder {
+    width: 100%;
+    height: 85%;
+  }
+  
+  .no-item {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin: auto;
+    position: absolute;
+  }
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+    margin-top: 0.5rem;
+    height: 100%;
+  }
+  
+  .mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 75%;
+  }
+  
+  .item {
+    display: flex;
+    /* width: 45%; */
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em;
+    input {
+      width: 40%;
+      font-size: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin: 0.5em;
+    }
+  }
+  
+  .mat-list {
+    height: 2.5rem;
+    overflow: hidden;
+    padding: 0 !important;
+    border-bottom: 1px solid #646e7696;
+    width: 80%;
+    margin: auto;
+    border-radius: 0.3rem;
+    margin: 0.2em auto;
+  }
+  
+  ::ng-deep .mat-list-item {
+    height: auto !important;
+    font-size: 12px;
+    display: flex;
+    height: 2.5em !important;
+    padding: 0;
+  
+    .mat-list-item-content {
+      span {
+        display: inline-flex;
+        flex: 80;
+      }
+      .btn {
+        width: 1.5rem;
+        height: 1.5rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        flex: 0;
+        span {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: black;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(52 58 64 / 16%);
+  }
+  
+  .btn-primary:not(:disabled):not(.disabled).active,
+  .btn-primary:not(:disabled):not(.disabled):active,
+  .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #edc345;
+    border-color: #edc345;
+  }
+  
+  .item-save {
+    display: flex;
+    margin: auto;
+    background: black;
+    height: 2rem;
+    width: 5.5rem;
+    justify-content: center;
+    align-items: center;
+    color: #f8d774;
+  }
+  
+  .final-save {
+    width: 80px !important;
+    display: inline-block;
+    margin: 0.5em 1em;
+    background: #f8d774;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    float: right;
+  }
+  .mat-temp{
+    min-height: 170%;
+  
+  }
+::ng-deep{
+// .fc .fc-toolbar .fc-button .fc-icon-chevron-left {
+//     font-family: "PrimeIcons" !important; 
+//     text-indent: 0;
+//     font-size: 1rem;
+// }
+.fc-daygrid.fc-dayGridMonth-view.fc-view{
+  margin:3px;
+}
+.fc-daygrid-event-harness{
+  margin: 1px;
+}
+.fc-view-harness.fc-view-harness-active{
+  height: auto !important;
+}
+.fc-col-header{
+tbody{
+  tr{
+    background-color: #d3a310;
+  }
+}
+}
+.fc-col-header-cell-cushion {
+  color: black;
+}
+.fc-daygrid-day-number{
+  color: black;
+  font-size: 12px; 
+  font-weight: bold;
+}
+// Remove or comment out these lines
+// .fc-toolbar-title {
+//   margin-left: 450px;
+// }
+// .fc-toolbar-chunk {
+//   margin-left: 33em;
+// }
+
+// Add these new styles
+.fc-header-toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1em !important;
+  
+  .fc-toolbar-chunk {
+    margin: 0.5em 0;
+    text-align: center;
+  }
+
+  .fc-toolbar-title {
+    font-size: 1.75em;
+    font-weight: bold;
+    margin: 0 !important;
+  }
+}
+
+.fc-footer-toolbar {
+  display: flex;
+  justify-content: center;
+  padding: 0.5em 0;
+
+  .fc-toolbar-chunk {
+    margin: 0;
+  }
+}
+}
+.fc-toolbar-chunk{
+  margin-left: 33em;
+}
+  ::ng-deep{
+    .fc-daygrid, .fc-daygrid>table {
+      position: relative;
+      z-index: 1;
+  }
+    .fc-view-harness.fc-view-harness-active{
+        width:100% !important;
+    }
+    .fc-daygrid.fc-dayGridMonth-view.fc-view{
+      width:100% !important;
+    }
+    .fc-scrollgrid.fc-scrollgrid-liquid{
+        width: 100%;
+        box-sizing: border-box;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: 1em;
+        thead{
+          border-color: #ddd;
+        }
+
+    }
+    .fc-scrollgrid-sync-table{
+tbody{
+tr{
+  td{
+    width:180px;
+    height: 180px;
+    border: 1px solid gray;
+  }
+}
+}
+    }
+   
+    .fc-daygrid-event-harness{
+      background: #0d89ec;
+    border: 1px solid #0d89ec;
+    color: #ffffff !important;
+    margin: 2px;
+    }
+    .fc-event-title.fc-sticky{
+color:white;
+    }
+  }
+
+::ng-deep {
+  .fc {
+    height: 100% !important;
+    
+    .fc-header-toolbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0.5em !important;
+      padding: 0.5em;
+
+      .fc-toolbar-chunk {
+        margin: 0.3em 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .fc-toolbar-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 0 !important;
+      }
+    }
+
+    .fc-view-harness {
+      height: calc(100vh - 250px) !important;
+    }
+  }
+}
+
+::ng-deep {
+  .fc {
+    .fc-header-toolbar {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      padding: 1rem 0 !important;
+      margin: 0 !important;
+
+      .fc-toolbar-title {
+        font-size: 1.75em !important;
+        font-weight: bold !important;
+        margin-bottom: 0.5rem !important;
+        order: 1 !important;
+      }
+
+      .fc-toolbar-chunk {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        order: 2 !important;
+
+        .fc-button {
+          margin: 0 0.25rem !important;
+        }
+      }
+    }
+
+    .fc-view-harness {
+      height: calc(100vh - 250px) !important;
+    }
+  }
+}
+
+::ng-deep {
+  .fc {
+    .fc-toolbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      
+      .fc-toolbar-title {
+        font-size: 1.75em;
+        font-weight: bold;
+        order: 1;
+      }
+      
+      .fc-toolbar-chunk {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        order: 2;
+      }
+    }
+
+    .fc-button-primary {
+      background-color: #f3b806 !important;
+      border-color: #f3b806 !important;
+      color: black !important;
+      
+      &:not(:disabled):hover {
+        background-color: darken(#f3b806, 10%) !important;
+        border-color: darken(#f3b806, 10%) !important;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(243, 184, 6, 0.5) !important;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .fc {
+    background: white;
+    padding: 1rem;
+    border-radius: 4px;
+
+    .fc-toolbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+
+      .fc-toolbar-title {
+        font-size: 1.75rem;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+
+    .fc-button-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .fc-button {
+      background: #f3b806;
+      border: none;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background: darken(#f3b806, 10%);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(243, 184, 6, 0.5);
+      }
+    }
+  }
+}
+
+.calendar-controls {
+  text-align: center;
+  margin-bottom: 1rem;
+  
+  .calendar-title {
+    font-size: 1.75em;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: black;
+  }
+  
+  .calendar-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    
+    .fc-button {
+      background: #f3b806;
+      border: none;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      
+      &:hover {
+        background: darken(#f3b806, 10%);
+      }
+    }
+  }
+}
+
+.mat-temp {
+  height: 90vh !important;
+  padding: 1em !important;
+}
+
+.mat-temp {
+  height: 90vh;
+  padding: 1rem;
+  
+  ::ng-deep full-calendar {
+    height: 100%;
+  }
+}
+
+.calendar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+:host ::ng-deep .fc .fc-toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+:host ::ng-deep .fc-header-toolbar {
+  margin-bottom: 0.5em !important;
+}
+
+:host ::ng-deep .fc-toolbar-title {
+  font-size: 2em !important;
+  font-weight: bold;
+  text-align: center;
+}
+
+:host ::ng-deep .fc-button {
+  background: #007bff !important;
+  border-color: #007bff !important;
+}
+
+:host ::ng-deep .fc-button:hover {
+  background: #0056b3 !important;
+  border-color: #0056b3 !important;
+}
+
+:host ::ng-deep .fc-prev-button,
+:host ::ng-deep .fc-next-button {
+  background-color: #f3b806 !important;
+  border-color: #f3b806 !important;
+  color: black !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.5em !important;
+}
+
+:host ::ng-deep .fc-prev-button {
+  margin-right: 10px !important;
+}
+
+:host ::ng-deep .fc-next-button {
+  margin-left: 10px !important;
+}
+
+:host ::ng-deep .fc-today-button {
+  margin: 0 1rem !important;
+  background-color: #f3b806 !important;
+  border-color: #f3b806 !important;
+  color: black !important;
+  padding: 8px 20px !important;
+  border-radius: 20px !important;
+  font-size: 1em !important;
+}
+
+:host ::ng-deep .fc-day-today {
+  background-color: rgba(255, 215, 0, 0.3) !important;
+  border: 1px solid #f3b806 !important;
+}

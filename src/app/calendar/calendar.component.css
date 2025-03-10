@@ -1,0 +1,76 @@
+.calendar-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+:host ::ng-deep .fc .fc-toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+:host ::ng-deep .fc-header-toolbar {
+    margin-bottom: 0.5em !important;
+}
+
+:host ::ng-deep .fc .fc-toolbar.fc-footer-toolbar {
+    margin-top: 0;
+    padding: 0.5rem !important;
+}
+
+:host ::ng-deep .fc-toolbar-chunk {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+:host ::ng-deep .fc-toolbar-title {
+    font-size: 2em !important;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem !important;
+    text-align: center;
+}
+
+:host ::ng-deep .fc-button {
+    background: #007bff !important;
+    border-color: #007bff !important;
+}
+:host ::ng-deep .fc-button:hover {
+    background: #0056b3 !important;
+    border-color: #0056b3 !important;
+}
+
+:host ::ng-deep .fc-prev-button,
+:host ::ng-deep .fc-next-button {
+    background-color: #f3b806 !important;
+    border-color: #f3b806 !important;
+    color: black !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.5em !important;
+}
+
+:host ::ng-deep .fc-prev-button {
+    margin-right: 10px !important;
+}
+
+:host ::ng-deep .fc-next-button {
+    margin-left: 10px !important;
+}
+
+:host ::ng-deep .fc-today-button {
+    margin: 0 1rem !important;
+    background-color: #f3b806 !important;
+    border-color: #f3b806 !important;
+    color: black !important;
+    padding: 8px 20px !important;
+    border-radius: 20px !important;
+    font-size: 1em !important;
+}
